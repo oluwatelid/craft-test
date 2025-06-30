@@ -36,6 +36,9 @@ stages:
       displayName: Docker push
       inputs:
        command: login
-       containerRegistry: 
+       containerRegistry: Dockerreg
+       tags: |
+         lizzygetty/catalogue:$(tag)
+
 
           
