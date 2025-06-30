@@ -1,0 +1,41 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+  branches:
+   include:
+     - main
+  paths:
+    include:
+      - catalogue
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.Buildnumber)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: Docker@2
+      displayName: Build an catalogue
+      inputs:
+        command: build
+        dockerfile: '$(Build.SourcesDirectory)/catalogue/Dockerfile'
+        tags: |
+          lizzygetty/catalogue:$(tag)
+    - task: Docker@2
+      displayName: Docker push
+      inputs:
+       command: login
+       containerRegistry: 
+
+          
