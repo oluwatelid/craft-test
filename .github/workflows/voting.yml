@@ -1,12 +1,13 @@
-name: catalogue build
+name: voting build
 
 on:
   workflow_dispatch:
   push:
     branches: [ "main" ]
-paths: ["voting"]
+    paths: ["voting"]
   pull_request:
     branches: [ "main" ]
+    paths: ["voting"]
 
 jobs:
 
