@@ -4,4 +4,3 @@
   "recommendationBaseUri": "http://recco:8080",
   "votingBaseUri": "http://voting:8080"
 }
-

@@ -1,0 +1,27 @@
+services:
+  voting:
+    image: lizzygetty/voting:30062
+    ports:
+      - 8081:8080
+
+  catalogue:
+    image: lizzygetty/catalogue:2906
+    depends_on:
+      - voting
+    ports:
+      - 5000:5000
+    
+  
+  recommendation:
+    image: lizzygetty/recommendation:2906
+    ports:
+      - 8080:8080
+  frontend:
+    image: lizzygetty/frontend:2906
+    depends_on:
+      - catalogue
+      - recommendation
+      - voting
+    ports:
+      - 3000:3000
+
