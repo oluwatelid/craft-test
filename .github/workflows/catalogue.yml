@@ -28,7 +28,7 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . --file catalogue/Dockerfile --tag lizzygetty/catalogue:$TAG
-        docker push lizzygetty/catalogue:$TAG
+        docker push lizzygetty/catalogue:${{ env.TAG }}
         env:
           TAG: $(date +%Y%m%d%H%M)
 
