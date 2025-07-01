@@ -27,9 +27,11 @@ jobs:
      
     - name: Build the Docker image
       run: |
-        echo "TAG=$(date +'%Y%m%dT%H%M%S')" >> $GITHUB_ENV
-        docker build . --file catalogue/Dockerfile --tag lizzygetty/catalogue:${{ env.TAG }}
-        docker push lizzygetty/catalogue:${{ env.TAG }}
+        echo "tag=$(date +'%Y%m%dT%H%M%S')" >> $GITHUB_ENV
+        docker build . --file catalogue/Dockerfile --tag lizzygetty/catalogue:$TAG
+        docker push lizzygetty/catalogue:$TAG
+        env:
+          TAG=${{ env.tag }}
        
 
 
