@@ -18,3 +18,4 @@ jobs:
      
     - name: Build the Docker image
       run: docker build . --file catalogue/Dockerfile --tag lizzygetty/catalogue:$(date +'%Y-%m-%d)
+    
